@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bavani Muthu | Developer Portfolio</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #0b0d12;
+        color: #f5f5f5;
+        font-family: "DM Sans", sans-serif;
+        line-height: 1.7;
+      }
+
+      :root {
+        --accent: #a3e635;
+        --muted: #9297a5;
+        --card: #141720;
+        --border: #252a35;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1150px;
+        margin: auto;
+      }
+
+      /* NAVBAR */
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 23px;
+        font-weight: 700;
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav a {
+        color: #b8bdc9;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      /* HERO */
+
+      .hero {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        padding: 70px 0;
+      }
+
+      .hero-content {
+        max-width: 760px;
+      }
+
+      .availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--accent);
+        border: 1px solid #354323;
+        background: #17200e;
+        padding: 8px 14px;
+        border-radius: 50px;
+        font-size: 13px;
+        margin-bottom: 30px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+      }
+
+      .hero h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(45px, 8vw, 85px);
+        line-height: 1.12;
+        letter-spacing: -3px;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 span {
+        color: var(--accent);
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 600px;
+        font-size: 17px;
+        margin-bottom: 30px;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 22px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      .primary {
+        background: var(--accent);
+        color: #10140a;
+      }
+
+      .primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px #a3e63525;
+      }
+
+      .secondary {
+        border: 1px solid var(--border);
+        color: white;
+      }
+
+      .secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* SECTIONS */
+
+      section {
+        padding: 80px 0;
+      }
+
+      .section-label {
+        color: var(--accent);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 38px;
+        margin-bottom: 35px;
+        letter-spacing: -1px;
+      }
+
+      /* ABOUT */
+
+      .about-text {
+        color: var(--muted);
+        max-width: 750px;
+        font-size: 16px;
+      }
+
+      .about-text strong {
+        color: white;
+      }
+
+      /* SKILLS */
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .skill-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 24px;
+        border-radius: 12px;
+        transition: 0.3s;
+      }
+
+      .skill-box:hover {
+        border-color: #a3e63560;
+        transform: translateY(-4px);
+      }
+
+      .skill-box h3 {
+        font-size: 16px;
+        margin-bottom: 16px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        background: #202531;
+        color: #c8ccd5;
+        padding: 6px 11px;
+        border-radius: 6px;
+        font-size: 12px;
+      }
+
+      /* PROJECTS */
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+
+      .project-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 28px;
+        border-radius: 14px;
+        transition: 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        border-color: #a3e63560;
+      }
+
+      .project-number {
+        color: var(--accent);
+        font-size: 13px;
+        margin-bottom: 18px;
+      }
+
+      .project-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+
+      .project-card p {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .project-tech span {
+        color: var(--accent);
+        font-size: 12px;
+      }
+
+      .project-link {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .project-link:hover {
+        color: var(--accent);
+      }
+
+      /* EDUCATION */
+
+      .education-card {
+        border-left: 2px solid var(--accent);
+        padding: 5px 0 5px 25px;
+      }
+
+      .education-card h3 {
+        font-size: 19px;
+        margin-bottom: 6px;
+      }
+
+      .education-card p {
+        color: var(--muted);
+      }
+
+      /* CONTACT */
+
+      .contact-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 45px;
+        text-align: center;
+      }
+
+      .contact-box h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 36px;
+        margin-bottom: 15px;
+      }
+
+      .contact-box p {
+        color: var(--muted);
+        margin-bottom: 25px;
+      }
+
+      footer {
+        padding: 25px 0;
+        text-align: center;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* MOBILE RESPONSIVE */
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          gap: 18px;
+        }
+
+        nav ul {
+          gap: 15px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        nav a {
+          font-size: 12px;
+        }
+
+        .hero {
+          min-height: 70vh;
+        }
+
+        .hero h1 {
+          letter-spacing: -2px;
+        }
+
+        .skills-grid,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          font-size: 30px;
+        }
+
+        .contact-box {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- NAVIGATION -->
+      <nav>
+        <div class="logo">Bavani<span>.</span></div>
+
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- HERO SECTION -->
+      <header class="hero">
+        <div class="hero-content">
+          <div class="availability">
+            <span class="dot"></span>
+            Open to opportunities
+          </div>
+
+          <h1>
+            Hi, I'm Bavani.<br />
+            I build <span>web experiences.</span>
+          </h1>
+
+          <p>
+            A developer passionate about building modern web applications,
+            solving problems, and turning ideas into real-world digital
+            products. Currently exploring new opportunities and growing my
+            skills.
+          </p>
+
+          <div class="buttons">
+            <a href="#projects" class="btn primary"> Explore My Projects ↗ </a>
+
+            <a href="#contact" class="btn secondary"> Get In Touch </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-label">01 / About me</div>
+
+        <h2 class="section-title">A little about myself.</h2>
+
+        <p class="about-text">
+          I'm a <strong>BCA graduate</strong> with an interest in software
+          development and web technologies. I enjoy creating user-friendly
+          applications, exploring new tools, and learning by building projects.
+          My experience includes working with frontend and backend technologies
+          to develop full-stack applications. I'm currently looking for an
+          entry-level opportunity where I can contribute, learn, and grow as a
+          developer.
+        </p>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-label">02 / Technologies</div>
+
+        <h2 class="section-title">My technical toolkit.</h2>
+
+        <div class="skills-grid">
+          <div class="skill-box">
+            <h3>Frontend</h3>
+            <div class="tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React.js</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>Backend</h3>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>Database & Tools</h3>
+            <div class="tags">
+              <span class="tag">MongoDB</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-label">03 / Selected work</div>
+
+        <h2 class="section-title">Projects I've built.</h2>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-number">PROJECT 01</div>
+
+            <h3>Project Management System</h3>
+
+            <p>
+              A full-stack application for managing projects, tasks, teams, and
+              progress. Includes authentication and role-based access control.
+            </p>
+
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>Express</span>
+              <span>MongoDB</span>
+            </div>
+
+            <a href="https://github.com/" target="_blank" class="project-link">
+              View on GitHub ↗
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-number">PROJECT 02</div>
+
+            <h3>Smart Spam Detection</h3>
+
+            <p>
+              A system designed to classify messages as spam or legitimate using
+              text-processing and data-analysis techniques.
+            </p>
+
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Data Processing</span>
+              <span>Machine Learning</span>
+            </div>
+
+            <a
+              href="https://github.com/bavani-dev/Smart-Spam-Detection-System"
+              target="_blank"
+              class="project-link"
+            >
+              View on GitHub ↗
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-number">PROJECT 03</div>
+
+            <h3>Expense Tracker</h3>
+
+            <p>
+              A personal finance application to record expenses, track spending,
+              and organize financial transactions.
+            </p>
+
+            <div class="project-tech">
+              <span>JavaScript</span>
+              <span>Web Development</span>
+            </div>
+
+            <a
+              href="https://github.com/bavani-dev/expensetrackerapp"
+              target="_blank"
+              class="project-link"
+            >
+              View on GitHub ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <div class="section-label">04 / Education</div>
+
+        <h2 class="section-title">My academic background.</h2>
+
+        <div class="education-card">
+          <h3>Bachelor of Computer Applications (BCA)</h3>
+          <p>Sri Bharathi Arts and Science College for Women</p>
+          <p>Bharathidasan University · 2023 – 2026</p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="contact-box">
+          <div class="section-label">05 / Contact</div>
+
+          <h2>Let's work together.</h2>
+
+          <p>
+            I'm actively looking for entry-level developer opportunities. Feel
+            free to connect with me.
+          </p>
+
+          <div class="buttons" style="justify-content: center">
+            <a href="mailto:bavanim0905@gmail.com" class="btn primary">
+              Email Me ↗
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/bavani-muthu-27685040a/"
+              target="_blank"
+              class="btn secondary"
+            >
+              LinkedIn ↗
+            </a>
+
+            <a
+              href="https://github.com/bavani-dev"
+              target="_blank"
+              class="btn secondary"
+            >
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>© 2026 Bavani Muthu · Designed & Built with HTML and CSS</footer>
+    </div>
+  </body>
+</html>
